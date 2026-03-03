@@ -1,0 +1,42 @@
+# -------------------
+# Python
+# -------------------
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.log
+.env
+.venv/
+venv/
+
+# -------------------
+# Data files
+# -------------------
+data_raw/
+*.csv
+*.zip
+*.xlsx
+
+# Allow small sample data if you add later
+!data_raw/sample/
+
+# -------------------
+# Power BI
+# -------------------
+*.pbix
+*.pbit
+*.tmp
+
+# -------------------
+# OS / Editor
+# -------------------
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# -------------------
+# Docker
+# -------------------
+*.tar
