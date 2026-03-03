@@ -1,0 +1,32 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: etl_bi_db
+    environment:
+      POSTGRES_DB: etl_bi
+      POSTGRES_USER: etl_bi_user
+      POSTGRES_PASSWORD: etl_bi_password
+      TZ: America/Edmonton
+    ports:
+      - "5432:5432"
+    volumes:
+      - etl_bi_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U etl_bi_user -d etl_bi"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+
+  adminer:
+    image: adminer:4
+    container_name: etl_bi_adminer
+    ports:
+      - "8080:8080"
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  etl_bi_pgdata:
