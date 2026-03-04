@@ -213,8 +213,8 @@ docker ps
 ```
 
 Optional checks:
-Adminer: http://localhost:8080
-Postgres: localhost:5432
+- Adminer: http://localhost:8080
+- Postgres: localhost:5432
 
 ### 2. Create Schemas and Base Tables
 This creates the `raw` and `analytics` schemas and base tables.
